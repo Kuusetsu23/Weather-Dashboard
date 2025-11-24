@@ -1,4 +1,4 @@
-import { kelvinToCelsius } from "./utils/kelvinToCelsius.js";
+import { kelvinToCelsius } from "./src/utils/kelvinToCelsius.js";
 
 // ELEMENT TARGETS
 const cityName = document.getElementById("cityName");
@@ -25,7 +25,7 @@ const sunriseTime = document.getElementById("sunriseTime");
 const sunsetTime = document.getElementById("sunsetTime");
 
 // API KEY
-const apiKey = "2db6c141020d0900c1e1f02b7a22f9e1";
+const apiKey = "e6566ed4a2f60388715b2dbe6c78a5c5";
 
 // ============================
 //  SEARCH EVENT
