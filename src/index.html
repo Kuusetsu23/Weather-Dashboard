@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Monitoring Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- SEARCH BAR -->
+    <div class="top-bar">
+      <input type="text" id="cityInput" placeholder="Cari lokasi...">
+      <button id="searchBtn" class="settings-btn">☼</button>
+    </div>
+
+    <div class="layout">
+
+      <!-- LEFT — BIG WEATHER CARD -->
+      <div class="big-card" id="bigCard">
+        <h2 id="cityName">Jakarta</h2>
+        <p id="dateInfo">Senin, 24 November 2025</p>
+
+        <div class="big-temp">
+          <span id="currentTemp">31</span><span class="deg">°C</span>
+        </div>
+
+        <div class="big-icon">
+          <img id="weatherIcon" src="" alt="">
+          <p id="weatherDesc">Cerah Berawan</p>
+          <p id="feelsLike">Terasa seperti 34°C</p>
+        </div>
+
+        <div class="minmax">
+          <div>Maximum<br><span id="maxTemp">33°C</span></div>
+          <div>Minimum<br><span id="minTemp">25°C</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT — 5 DAYS FORECAST -->
+      <div class="right-panel">
+        <div class="tabs">
+          <button class="tab active" id="tabHourly">Per Jam</button>
+          <button class="tab" id="tabDaily">Detail Harian</button>
+        </div>
+
+        <!-- HOURLY FORECAST -->
+        <div class="hourly-box" id="hourlyBox"></div>
+
+        <!-- DAILY FORECAST -->
+        <div class="daily-box" id="dailyBox" style="display:none;"></div>
+      </div>
+
+    </div>
+
+    <!-- SECOND ROW: AIR QUALITY, SUN, GRAPH -->
+    <div class="lower-section">
+
+      <div class="card air-card">
+        <h3>Kualitas Udara</h3>
+        <div class="aqi">
+          <h1 id="aqiValue">42</h1>
+          <span>AQI</span>
+        </div>
+        <p id="aqiText">Baik</p>
+        <p class="aq-desc">Udara dalam kondisi baik untuk aktivitas luar ruangan</p>
+      </div>
+
+      <div class="card sun-card">
+        <h3>Matahari</h3>
+        <div class="sun-arc">
+          <div class="sun-dot"></div>
+          <img src="https://cdn-icons-png.flaticon.com/512/3222/3222804.png" class="sunrise-icon">
+        </div>
+        <div class="sun-info">
+          <span>Terbit<br><b id="sunriseTime">05:45</b></span>
+          <span>Terbenam<br><b id="sunsetTime">18:30</b></span>
+        </div>
+      </div>
+
+      <div class="card graph-card">
+        <h3>Grafik Suhu 24 Jam</h3>
+        <canvas id="tempChart"></canvas>
+      </div>
+
+    </div>
+
+    <!-- MINI CARDS -->
+    <div class="mini-cards">
+
+      <div class="mini-card">
+        <h4>Kelembaban</h4>
+        <p id="humidityValue">--%</p>
+      </div>
+
+      <div class="mini-card">
+        <h4>Kecepatan Angin</h4>
+        <p id="windValue">-- km/j</p>
+      </div>
+
+      <div class="mini-card">
+        <h4>Tekanan Udara</h4>
+        <p id="pressureValue">-- hPa</p>
+      </div>
+
+      <div class="mini-card">
+        <h4>Curah Hujan</h4>
+        <p id="rainValue">-- mm</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
