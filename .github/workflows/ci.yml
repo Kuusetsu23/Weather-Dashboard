@@ -17,18 +17,27 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install ESLint
-        run: |
-          npm install -g eslint
-
-      - name: Run Linter (non-blocking)
-        run: |
-          eslint . || echo "Linter finished with warnings/errors but pipeline continues."
-
-      - name: Run Test (if exists)
+      - name: Install dependencies
         run: |
           if [ -f "package.json" ]; then
-            npm test || echo "Tests failed."
+            npm install
+          else
+            echo "No package.json found. Skipping npm install."
+          fi
+
+      - name: Run Linter (blocking)
+        run: |
+          if command -v eslint > /dev/null 2>&1; then
+            eslint .
+          else
+            echo "ESLint not found. Install it in devDependencies."
+            exit 1
+          fi
+
+      - name: Run Test (if exists, blocking)
+        run: |
+          if [ -f "package.json" ]; then
+            npm test
           else
             echo "No tests found."
           fi
