@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     branches: [ "main" ]
-    sddsdsa
+    
 jobs:
   build:
     runs-on: ubuntu-latest
